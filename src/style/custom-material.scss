@@ -1,3 +1,4 @@
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -11,28 +12,23 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$kutbettinwa-primary: mat-palette($mat-indigo);
-$kutbettinwa-accent: mat-palette($mat-pink, A200, A100, A400);
+$ky-primary: mat-palette($mat-indigo);
+$ky-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$kutbettinwa-warn: mat-palette($mat-red);
+$ky-warn: mat-palette($mat-red);
 
-// Create the theme object (a Sass map containing all of the palettes).
-$kutbettinwa-theme: mat-light-theme($kutbettinwa-primary, $kutbettinwa-accent, $kutbettinwa-warn);
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ky-theme: mat-light-theme((
+  color: (
+    primary: $ky-primary,
+    accent: $ky-accent,
+    warn: $ky-warn,
+  )
+));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($kutbettinwa-theme);
-
-/* You can add global styles to this file, and also import other style files */
-
-
-html, body {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+@include angular-material-theme($ky-theme);

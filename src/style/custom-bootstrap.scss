@@ -1,0 +1,27 @@
+@import "variable/bootstrap.variable";
+@import "~bootstrap/scss/bootstrap";
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .container {
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1340px;
+  }
+}

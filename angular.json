@@ -1,13 +1,19 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "packageManager": "yarn"
+  },
   "newProjectRoot": "projects",
   "projects": {
-    "kutbettinwa": {
+    "kutbettinCom": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -17,15 +23,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kutbettinwa",
+            "outputPath": "dist/kutbettinCom",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/asset"
             ],
             "styles": [
               "src/styles.scss"
@@ -33,7 +39,7 @@
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles/"
+                "src/style/"
               ]
             }
           },
@@ -41,29 +47,27 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "src/environment/environment.ts",
+                  "with": "src/environment/environment.prod.ts"
                 }
               ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ]
             }
@@ -72,18 +76,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kutbettinwa:build"
+            "browserTarget": "kutbettinCom:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kutbettinwa:build:production"
+              "browserTarget": "kutbettinCom:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kutbettinwa:build"
+            "browserTarget": "kutbettinCom:build"
           }
         },
         "test": {
@@ -95,7 +99,7 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/asset"
             ],
             "styles": [
               "src/styles.scss"
@@ -103,7 +107,7 @@
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles/"
+                "src/style/"
               ]
             }
           }
@@ -125,15 +129,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "kutbettinwa:serve"
+            "devServerTarget": "kutbettinCom:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "kutbettinwa:serve:production"
+              "devServerTarget": "kutbettinCom:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "kutbettinwa"
+    }
+  },
+  "defaultProject": "kutbettinCom"
 }
